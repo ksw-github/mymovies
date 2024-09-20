@@ -1,15 +1,13 @@
 //폐쇄망이나 특수한 네트워크환경에서 인증서오류 인증건너뛰기
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
-// import Link from "next/link";
 import Movie from "../../components/movie";
 import styles from "../../styles/home.module.css";
+import { API_URL } from "../constants";
 
 export const metadata ={
     title: "Home"
 }
-
-export const API_URL = "https://nomad-movies.nomadcoders.workers.dev/movies";
 
 async function getMovies(){
     // await new Promise((resolve)=>setTimeout(resolve, 1000));
