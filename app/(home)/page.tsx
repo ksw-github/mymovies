@@ -1,7 +1,7 @@
 //폐쇄망이나 특수한 네트워크환경에서 인증서오류 인증건너뛰기
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
-import Link from "next/link";
+// import Link from "next/link";
 import Movie from "../../components/movie";
 import styles from "../../styles/home.module.css";
 
