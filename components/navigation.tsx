@@ -1,8 +1,8 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-// import { useState } from "react";
 import styles from "../styles/navigation.module.css";
+// import { useState } from "react";
 
 export default function Navigation (){
     const path = usePathname();
@@ -11,10 +11,10 @@ export default function Navigation (){
         <nav className={styles.nav}>
             <ul>
                 <li>
-                    <Link href="/">메인</Link> {path === "/" ? "🔥" : ""}
+                    <Link href="/">Home</Link> {path === "/" ? "🔥" : ""}
                 </li>
                 <li>
-                    <Link href="/us">우리</Link> {path === "/us" ? "🔥" : ""}
+                    <Link href="/me">About Me</Link> {path === "/me" ? "🔥" : ""}
                 </li>
             </ul>
         </nav>

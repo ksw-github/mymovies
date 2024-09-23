@@ -28,6 +28,7 @@ export default async function Home() {
             title={movie.title}
           />
         ))}
+        {/* <div data-orientation="horizontal" role="none" className="shrink-0 bg-border h-[1px] w-full"></div> */}
       </div>
     );
 }
