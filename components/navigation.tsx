@@ -2,19 +2,17 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import styles from "../styles/navigation.module.css";
-// import { useState } from "react";
 
 export default function Navigation (){
     const path = usePathname();
-    // const [count, setCount] = useState(0);
     return (
-        <nav className={styles.nav}>
+        <nav className={`${styles.nav} backdrop-blur-sm border-[#1d1d1d]`}>
             <ul>
                 <li>
-                    <Link href="/">Home</Link> {path === "/" ? "🔥" : ""}
+                    <Link href="/" className={path === "/" ? styles.activeLink : ""}>Home</Link> 
                 </li>
                 <li>
-                    <Link href="/me">About Me</Link> {path === "/me" ? "🔥" : ""}
+                    <Link href="/me" className={path === "/me" ? styles.activeLink : ""}>About Me</Link> 
                 </li>
             </ul>
         </nav>

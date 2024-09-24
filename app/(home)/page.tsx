@@ -19,16 +19,15 @@ async function getMovies(){
 export default async function Home() {
     const movies = await getMovies();
     return (
-      <div className={styles.container}>
-        {movies.map((movie) => (
-          <Movie
-            key={movie.id}
-            id={movie.id}
-            poster_path={movie.poster_path}
-            title={movie.title}
-          />
-        ))}
-        {/* <div data-orientation="horizontal" role="none" className="shrink-0 bg-border h-[1px] w-full"></div> */}
-      </div>
+        <div className={styles.container}>
+            {movies.map((movie) => (
+                <Movie
+                key={movie.id}
+                id={movie.id}
+                poster_path={movie.poster_path}
+                title={movie.title}
+                />
+            ))}
+        </div>
     );
 }
