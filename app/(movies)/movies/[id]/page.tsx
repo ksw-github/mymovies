@@ -20,12 +20,12 @@ export default async function Movies ({params:{id}}:IParams) {
             <Suspense fallback ={<h1>info 로딩중</h1>}>
                 <MovieInfo id={id}/>
             </Suspense>
-            <Suspense fallback ={<h1>videos 로딩중</h1>}>
+            {/* <Suspense fallback ={<h1>videos 로딩중</h1>}>
                 <MovieVideos id={id}/>
             </Suspense>
             <Suspense fallback ={<h1>similar 로딩중</h1>}>
                 <MovieSimilar id={id}/>
-            </Suspense>
+            </Suspense> */}
         </div>
     )
 };
