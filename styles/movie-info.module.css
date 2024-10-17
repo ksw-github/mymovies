@@ -21,7 +21,6 @@
   color: rgb(189, 189, 189);
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
 }
 
 .container iframe {

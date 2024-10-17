@@ -1,7 +1,7 @@
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
 export const metadata = {
-    title: 'me',
+    title: 'Me',
 }
 
 export default function Me () {

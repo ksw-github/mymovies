@@ -1,0 +1,16 @@
+.container {
+  width: 80%;
+  margin: 0 auto;
+  color: rgb(189, 189, 189);
+  text-align: center;
+}
+.img {
+  width: 170px;
+  margin: 0 auto;
+}
+.poster {
+  border-radius: 15px;
+}
+.name {
+  color: #e5e7eb;
+}

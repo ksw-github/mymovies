@@ -2,7 +2,7 @@ import "../styles/global.css";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { Metadata } from "next";
 import Navigation from "../components/navigation";
-import { Footer } from "./(home)/footer";
+import { Footer } from "../components/footer";
 
 export const metadata:Metadata = {
     title: {

@@ -1,7 +1,10 @@
+//폐쇄망이나 특수한 네트워크환경에서 인증서오류 인증건너뛰기
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+
 import { Suspense } from "react";
 import MovieInfo, { getMovie } from "../../../../components/movie-info";
-import MovieVideos from "../../../../components/movie-videos";
-import MovieSimilar from "../../../../components/movie-similar";
+import MovieCredits from "../../../../components/movie-credits";
+import MovieProviders from "../../../../components/movie-providers";
 
 interface IParams{
     params: {id:string};
@@ -20,12 +23,14 @@ export default async function Movies ({params:{id}}:IParams) {
             <Suspense fallback ={<h1>info 로딩중</h1>}>
                 <MovieInfo id={id}/>
             </Suspense>
-            {/* <Suspense fallback ={<h1>videos 로딩중</h1>}>
-                <MovieVideos id={id}/>
+            <br/>
+            <Suspense fallback ={<h1>credits 로딩중</h1>}>
+                <MovieCredits id={id}/>
             </Suspense>
-            <Suspense fallback ={<h1>similar 로딩중</h1>}>
-                <MovieSimilar id={id}/>
-            </Suspense> */}
+            <br/>
+            <Suspense fallback ={<h1>credits 로딩중</h1>}>
+                <MovieProviders id={id}/>
+            </Suspense>
         </div>
     )
 };
