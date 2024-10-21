@@ -1,5 +1,4 @@
 import { API_URL } from "../app/constants";
-import styles from "../styles/movie-videos.module.css";
 
 async function getVideos(id:string){
     const response = await fetch(`${API_URL}/${id}/videos`);
@@ -23,13 +22,14 @@ export default async function MovieVideos({ id }: { id: string }) {
     const firstVideo = videos[0];
     if (videos.length === 0) return false;
     return (
-        <div className={styles.container}>
+        <div className="w-full mx-auto">
             <iframe
             key={firstVideo.id}
             src={`https://youtube.com/embed/${firstVideo.key}`}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
             title={firstVideo.name}
+            className="w-full h-[500px] border border-[#515151] rounded-xl"
             />
         </div>
     );

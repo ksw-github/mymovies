@@ -1,8 +1,7 @@
 //폐쇄망이나 특수한 네트워크환경에서 인증서오류 인증건너뛰기
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
-import Movie from "../../components/movie";
-import styles from "../../styles/home.module.css";
+import Movie from "../../components/movie-home";
 import { API_URL } from "../constants";
 
 export const metadata ={
@@ -19,7 +18,7 @@ async function getMovies(){
 export default async function Home() {
     const movies = await getMovies();
     return (
-        <div className={styles.container}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 max-w-90% mx-auto w-[90%]">
             {movies.map((movie) => (
                 <Movie
                 key={movie.id}

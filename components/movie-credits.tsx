@@ -20,15 +20,30 @@ export default async function MovieCredits({ id }: { id: string }) {
         autoplaySpeed: 3000,
         responsive: [
             {
-                breakpoint: 1024,
+                breakpoint: 1200, //큰 화면 (데스크탑)
                 settings: {
-                    slidesToShow: 2,
+                    slidesToShow: 4,
                     slidesToScroll: 1,
                     infinite: true,
                 },
             },
             {
-                breakpoint: 600,
+                breakpoint: 900, //중간 화면 (노트북)
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    infinite: true,
+                },
+            },
+            {
+                breakpoint: 600, //작은 화면 (태블릿)
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                },
+            },
+            {
+                breakpoint: 480, //모바일 화면
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1,

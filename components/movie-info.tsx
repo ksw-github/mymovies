@@ -1,7 +1,6 @@
 import { API_URL } from "../app/constants";
-import styles from "../styles/movie-info.module.css";
+// import styles from "../styles/movie-info.module.css";
 import {PosterModal, SimilarModal} from "./modal";
-import MovieProviders from "./movie-providers";
 import MovieVideos from "./movie-videos";
 
 export async function getMovie(id: string) {
@@ -15,17 +14,17 @@ export default async function MovieInfo({id}:{id:string}){
     const hours = Math.floor(totalMinutes / 60);
     const minutes = totalMinutes % 60;
     return (
-        <div className={styles.container}>
-            <div>
+        <div className="grid grid-cols-1 xl:grid-cols-[1fr_1.5fr] gap-12 max-w-90% mx-auto w-[90%] text-[#A3A3A3]">
+            <div className="mx-auto">
                 <img
                 src={movie.poster_path}
-                className={`${styles.poster} border border-[#1d1d1d]`}
+                className="place-self-center rounded-2xl border border-[#1d1d1d]"
                 alt={movie.title}
                 />
             </div>
-            <div className={styles.info}>
+            <div className="flex flex-col">
                 <div className="flex items-center justify-between font-bold">
-                    <h1 className={styles.title}>{movie.title}</h1>
+                    <h1 className="text-white text-4xl font-bold">{movie.title}</h1>
                     <span className={movie.status === "Released" ? "text-green-500" : "text-orange-400"}>
                         {movie.status}
                     </span>
@@ -36,7 +35,7 @@ export default async function MovieInfo({id}:{id:string}){
                     <span>{movie.release_date}</span>&#183;
                     <span>{`${hours}H ${minutes}M`}</span>
                 </div>
-                <div className="flex justify-between font-bold mt-2">
+                <div className="sm:flex sm:justify-between font-bold mt-2">
                     <div className="flex gap-2">
                         {movie.genres.map(genre => (
                             <span key={genre.id} className="bg-white bg-opacity-30 rounded pl-1 pr-1 border border-[#b8b8b8]">
@@ -51,7 +50,7 @@ export default async function MovieInfo({id}:{id:string}){
                 <MovieVideos id={id}/>
                 <hr className="border-[#1d1d1d]"/>
                 <br />
-                <div className="items-center justify-between gap-5 text-center grid grid-cols-3">
+                <div className="items-center justify-between gap-5 text-center grid grid-cols-1 xl:grid-cols-3">
                     <div className="justify-center gap-3 group">
                         <PosterModal movie={movie}/>
                     </div>
@@ -59,9 +58,9 @@ export default async function MovieInfo({id}:{id:string}){
                         <b className="text-xl italic">{movie.tagline ? `"${movie.tagline}"` : null}</b>
                         <p className="mt-5 mb-5">{movie.overview}</p>
                         {movie.homepage ? 
-                          <a className="font-bold" href={movie.homepage} target={"_blank"}>
-                              Homepage &rarr;
-                          </a>
+                            <a className="font-bold" href={movie.homepage} target={"_blank"}>
+                                Homepage &rarr;
+                            </a>
                         : null}
                         <div className="flex justify-center gap-3 mt-5">
                             {movie.production_companies.map(partner => partner.logo_path && 

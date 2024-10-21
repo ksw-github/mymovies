@@ -13,7 +13,7 @@ export function PosterModal({ movie }) {
 
     return (
         <div className="items-center justify-between gap-5 text-center">
-            <div className="relative flex items-center group col-span-1">
+            <div className="relative flex items-center group col-span-1 mx-auto">
                 {movie.backdrop_path && 
                     (movie.backdrop_path.endsWith('.jpg') || 
                     movie.backdrop_path.endsWith('.jpeg') || 
@@ -56,36 +56,42 @@ export function PosterModal({ movie }) {
 }
 
 async function getSimilar(id){
-  const response = await fetch(`${API_URL}/${id}/similar`);
+    const response = await fetch(`${API_URL}/${id}/similar`);
 
-  if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-  }
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+    }
 
-  try {
-      return await response.json();
-  } catch (error) {
-      console.error("JSON 파싱 오류:", error);
-      return [];
-  }
+    try {
+        return await response.json();
+    } catch (error) {
+        console.error("JSON 파싱 오류:", error);
+        return [];
+    }
 }
 
 export function SimilarModal({ id }) {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [similar, setSimilar] = useState([]);
+    const [loading, setLoading] = useState(false);
+
     const toggleModal = () => {
         setIsModalOpen(!isModalOpen);
     };
+
     useEffect(() => {
         const fetchSimilarMovies = async () => {
+            setLoading(true);
             const movies = await getSimilar(id);
             setSimilar(movies);
+            setLoading(false);
         };
-        
+
         if (isModalOpen) {
             fetchSimilarMovies();
         }
     }, [id, isModalOpen]);
+
     const settings = {
         dots: false,
         infinite: true,
@@ -119,21 +125,23 @@ export function SimilarModal({ id }) {
             {isModalOpen && (
                 <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm z-50" onClick={toggleModal}>
                     <div className="mx-auto text-center w-[90%]" onClick={(e) => e.stopPropagation()}>
-                        {similar.length > 0 ? (
+                        {loading ? (
+                            <div className="text-white">로딩중...</div>
+                        ) : similar.length > 0 ? (
                             <Slider {...settings}>
-                                    {similar.map((movie) => (
-                                        movie.poster_path ? (
-                                            <div key={movie.id}>
-                                                <Link prefetch href={`/movies/${movie.id}`}>
-                                                    <img
-                                                        src={movie.poster_path}
-                                                        className="w-[300px] mx-auto rounded-[15px]"
-                                                        alt={movie.title}
-                                                    />
-                                                </Link>
-                                            </div>
-                                        ) : null
-                                    ))}
+                                {similar.map((movie) => (
+                                    movie.poster_path ? (
+                                        <div key={movie.id}>
+                                            <Link prefetch href={`/movies/${movie.id}`}>
+                                                <img
+                                                    src={movie.poster_path}
+                                                    className="w-[300px] mx-auto rounded-[15px]"
+                                                    alt={movie.title}
+                                                />
+                                            </Link>
+                                        </div>
+                                    ) : null
+                                ))}
                             </Slider>
                         ) : (
                             <div className="text-white">정보가 없습니다</div>
