@@ -9,7 +9,7 @@ export const metadata:Metadata = {
         template: "%s | nextJS movies",
         default: "디폴트값"
     },
-    description: '공통레이아웃',
+    description: 'NextJS로 구현한 영화홈페이지',
 }
 
 export default function Layout({ children }:{ children: React.ReactNode}) {

@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata:Metadata = {
-    title: "없는 페이지",
+    title: "존재하지 않는 페이지",
 }
 
 export default function NotFound(){

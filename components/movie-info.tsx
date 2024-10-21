@@ -78,6 +78,8 @@ export default async function MovieInfo({id}:{id:string}){
                         </div>
                     </div>
                 </div>
+                <br/>
+                <hr className="border-[#1d1d1d]"/>
             </div>
         </div>
     );
