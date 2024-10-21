@@ -1,5 +1,4 @@
 import { API_URL } from "../app/constants";
-// import styles from "../styles/movie-info.module.css";
 import {PosterModal, SimilarModal} from "./modal";
 import MovieVideos from "./movie-videos";
 
@@ -29,13 +28,13 @@ export default async function MovieInfo({id}:{id:string}){
                         {movie.status}
                     </span>
                 </div>
-                <div className="flex gap-1">
+                <div className="flex gap-1 mt-2 mb-2">
                     <span className="font-bold">⭐️ {movie.vote_average.toFixed(1)}</span>&#183;
                     <span>{movie.origin_country}</span>&#183;
                     <span>{movie.release_date}</span>&#183;
                     <span>{`${hours}H ${minutes}M`}</span>
                 </div>
-                <div className="sm:flex sm:justify-between font-bold mt-2">
+                <div className="sm:flex sm:justify-between font-bold">
                     <div className="flex gap-2">
                         {movie.genres.map(genre => (
                             <span key={genre.id} className="bg-white bg-opacity-30 rounded pl-1 pr-1 border border-[#b8b8b8]">

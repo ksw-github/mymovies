@@ -119,7 +119,7 @@ export function SimilarModal({ id }) {
 
     return (
         <div>
-            <button className="font-bold hover:underline" onClick={toggleModal}>
+            <button className="font-bold hover:underline mt-2 xl:mt-0" onClick={toggleModal}>
                 similar&nbsp;<i className="fa-solid fa-angles-right"></i>
             </button>
             {isModalOpen && (

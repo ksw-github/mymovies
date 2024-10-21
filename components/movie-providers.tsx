@@ -44,7 +44,7 @@ export default function MovieProviders({id}:{id:string}) {
                 <thead>
                     <tr className="border-b grid grid-cols-4">
                         <th className="p-2">
-                            <span>CountryCode : </span>
+                            <span>CountryCode: </span>
                             <select onChange={handleCountryChange} value={selectedCountry} className="border border-[#b8b8b8] bg-black rounded-md py-1 px-3 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500">
                                 <option value="" disabled>none</option>
                                 {countryCodes.map((countryCode) => (
@@ -73,13 +73,13 @@ export default function MovieProviders({id}:{id:string}) {
                         <td className="border-l flex flex-wrap justify-center items-center">
                             {providers[selectedCountry]?.flatrate?.length > 0 ? (
                             providers[selectedCountry].flatrate.map((provider) => (
-                                <div key={provider.provider_id} className="w-1/3 p-2">
+                                <div key={provider.provider_id} className="xl:w-1/3 p-2">
                                     <img
                                     src={`https://image.tmdb.org/t/p/w500${provider.logo_path}`}
                                     alt={provider.provider_name}
                                     className="w-10 mx-auto"
                                     />
-                                    <span>{provider.provider_name}</span>
+                                    <span className="">{provider.provider_name}</span>
                                 </div>
                             ))) : (
                                 <span>No Flatrate Providers</span>
@@ -88,13 +88,13 @@ export default function MovieProviders({id}:{id:string}) {
                         <td className="border-l flex flex-wrap justify-center items-center">
                             {providers[selectedCountry]?.buy?.length > 0 ? (
                                 providers[selectedCountry].buy.map((provider) => (
-                                    <div key={provider.provider_id} className="w-1/3 p-2">
+                                    <div key={provider.provider_id} className="xl:w-1/3 p-2">
                                         <img
                                         src={`https://image.tmdb.org/t/p/w500${provider.logo_path}`}
                                         alt={provider.provider_name}
                                         className="w-10 mx-auto"
                                         />
-                                        <span>{provider.provider_name}</span>
+                                        <span className="">{provider.provider_name}</span>
                                     </div>
                                 ))
                             ) : (
@@ -104,13 +104,13 @@ export default function MovieProviders({id}:{id:string}) {
                         <td className="border-l flex flex-wrap justify-center items-center">
                             {providers[selectedCountry]?.rent?.length > 0 ? (
                                 providers[selectedCountry].rent.map((provider) => (
-                                    <div key={provider.provider_id} className="w-1/3 p-2">
+                                    <div key={provider.provider_id} className="xl:w-1/3 p-2">
                                         <img
                                         src={`https://image.tmdb.org/t/p/w500${provider.logo_path}`}
                                         alt={provider.provider_name}
                                         className="w-10 mx-auto"
                                         />
-                                        <span>{provider.provider_name}</span>
+                                        <span className="">{provider.provider_name}</span>
                                     </div>
                                 ))
                             ) : (
