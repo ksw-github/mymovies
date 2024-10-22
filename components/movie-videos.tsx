@@ -29,7 +29,7 @@ export default async function MovieVideos({ id }: { id: string }) {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
             title={firstVideo.name}
-            className="w-full h-[250px] sm:h-[500px] border border-[#515151] rounded-xl my-8"
+            className="w-full h-[250px] sm:h-[350px] md:h-[500px] border border-[#515151] rounded-xl my-8"
             />
         </div>
     );

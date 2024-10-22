@@ -35,7 +35,7 @@ export default async function MovieInfo({id}:{id:string}){
                     <span>{`${hours}H ${minutes}M`}</span>
                 </div>
                 <div className="sm:flex sm:justify-between font-bold">
-                    <div className="flex gap-2">
+                    <div className="flex gap-2 flex-wrap">
                         {movie.genres.map(genre => (
                             <span key={genre.id} className="bg-white bg-opacity-30 rounded pl-1 pr-1 border border-[#b8b8b8]">
                                 #{genre.name}
@@ -49,7 +49,7 @@ export default async function MovieInfo({id}:{id:string}){
                 <MovieVideos id={id}/>
                 <hr className="border-[#1d1d1d]"/>
                 <br />
-                <div className="items-center justify-between gap-5 text-center grid grid-cols-1 xl:grid-cols-3">
+                <div className="items-center justify-between md:gap-5 text-center grid grid-cols-1 xl:grid-cols-3">
                     <div className="justify-center gap-3 group">
                         <PosterModal movie={movie}/>
                     </div>

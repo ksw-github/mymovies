@@ -45,7 +45,7 @@ export default function MovieProviders({id}:{id:string}) {
                     <tr className="border-b grid grid-cols-4">
                         <th className="p-2">
                             <span>CountryCode: </span>
-                            <select onChange={handleCountryChange} value={selectedCountry} className="border border-[#b8b8b8] bg-black rounded-md py-1 px-3 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500">
+                            <select onChange={handleCountryChange} value={selectedCountry} className="border border-[#b8b8b8] bg-black rounded-md py-1 px-2 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500">
                                 <option value="" disabled>none</option>
                                 {countryCodes.map((countryCode) => (
                                     <option key={countryCode} value={countryCode}>

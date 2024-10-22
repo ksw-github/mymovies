@@ -1,6 +1,3 @@
-//폐쇄망이나 특수한 네트워크환경에서 인증서오류 인증건너뛰기
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
-
 import { Suspense } from "react";
 import MovieInfo, { getMovie } from "../../../../components/movie-info";
 import MovieCredits from "../../../../components/movie-credits";
